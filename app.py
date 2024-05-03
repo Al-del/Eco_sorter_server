@@ -183,5 +183,11 @@ def gaz_red():
         except Exception as e:
             print(e)
             return "Error"
+@app.route("/raw_", methods=['POST'])
+def add_points():
+    if request.method == 'POST':
+        raw = request.args.get('raw')
+        print(raw)
+        return "Traume"
 if __name__ == "__main__":
-    app.run(host="192.168.1.114")
+    app.run(host="192.168.1.107")
