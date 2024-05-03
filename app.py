@@ -189,5 +189,10 @@ def add_points():
         raw = request.args.get('raw')
         print(raw)
         return "Traume"
+@app.route("/ard", methods=['POST'])
+def ardu():
+    if request.method == 'POST':
+        # You can return any response you want here
+        return "Received POST request from Arduino"
 if __name__ == "__main__":
-    app.run(host="192.168.1.107")
+    app.run(host="192.168.15.23")
