@@ -195,4 +195,4 @@ def ardu():
         # You can return any response you want here
         return "Received POST request from Arduino"
 if __name__ == "__main__":
-    app.run(host="192.168.15.23")
+    app.run(host="192.168.100.31")
