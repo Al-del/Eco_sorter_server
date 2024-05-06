@@ -2,6 +2,9 @@ from flask import Flask, request
 from numpy import double
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+
+from load_pyt import exerc
+
 # Flask Constructor
 app = Flask(__name__)
 
@@ -192,7 +195,10 @@ def add_points():
 @app.route("/ard", methods=['POST'])
 def ardu():
     if request.method == 'POST':
-        # You can return any response you want here
-        return "Received POST request from Arduino"
+        result = exerc()
+        if result is None:
+            return "No plastic detected"
+        else:
+            return result
 if __name__ == "__main__":
     app.run(host="192.168.100.31")
