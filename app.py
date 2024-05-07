@@ -12,7 +12,6 @@ app = Flask(__name__)
 uri = "mongodb+srv://admin:admin@ecosorter.x4owlln.mongodb.net/?retryWrites=true&w=majority&appName=EcoSorter"
 disc_gaz = 0
 disc_electricitate = 0
-ok = False
 # a function with the url
 @app.route("/redeem", methods=['POST'])
 def redeem():
@@ -101,5 +100,12 @@ def ardu():
                 return result
     else:
         return "Error"
+@app.route("/start", methods=['GET'])
+def start():
+    if request.method == 'GET':
+        global ok
+        ok = True
+        print(ok)
+        return "Start"
 if __name__ == "__main__":
-    app.run(host="192.168.100.31")
+    app.run(host="192.168.181.23")
